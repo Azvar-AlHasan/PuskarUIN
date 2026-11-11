@@ -10,7 +10,9 @@ import androidx.compose.material.icons.outlined.Event
 import androidx.compose.material.icons.outlined.WorkOutline
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -98,6 +100,11 @@ fun PuskarNavHost(
                                 Icon(if (selected) dest.selectedIcon else dest.unselectedIcon, contentDescription = null)
                             },
                             label = { Text(dest.label) },
+                            colors = NavigationBarItemDefaults.colors(
+                                selectedTextColor = MaterialTheme.colorScheme.primary,
+                                selectedIconColor = MaterialTheme.colorScheme.onPrimaryContainer,
+                                indicatorColor = MaterialTheme.colorScheme.primaryContainer,
+                            ),
                         )
                     }
                 }
