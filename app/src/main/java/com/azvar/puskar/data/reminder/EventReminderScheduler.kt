@@ -6,6 +6,7 @@ import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import com.azvar.puskar.domain.model.CareerEvent
 import com.azvar.puskar.domain.model.EVENT_ZONE
+import dagger.Lazy
 import java.time.Clock
 import java.time.Duration
 import java.util.concurrent.TimeUnit
@@ -22,7 +23,9 @@ interface EventReminderScheduler {
  * and does not need the exact-alarm permission, which is overkill for a reminder.
  */
 class WorkManagerEventReminderScheduler @Inject constructor(
-    private val workManager: WorkManager,
+    // Lazy: WorkManager is only initialised the first time a reminder is actually toggled,
+    // not whenever a screen that *could* toggle one is opened.
+    private val workManager: Lazy<WorkManager>,
     private val clock: Clock,
 ) : EventReminderScheduler {
 
@@ -40,11 +43,11 @@ class WorkManagerEventReminderScheduler @Inject constructor(
             )
             .addTag(TAG)
             .build()
-        workManager.enqueueUniqueWork(workName(event.id), ExistingWorkPolicy.REPLACE, request)
+        workManager.get().enqueueUniqueWork(workName(event.id), ExistingWorkPolicy.REPLACE, request)
     }
 
     override fun cancel(eventId: String) {
-        workManager.cancelUniqueWork(workName(eventId))
+        workManager.get().cancelUniqueWork(workName(eventId))
     }
 
     companion object {
