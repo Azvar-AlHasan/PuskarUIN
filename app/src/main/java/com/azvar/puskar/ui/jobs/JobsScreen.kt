@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -11,7 +12,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.CircularProgressIndicator
@@ -52,7 +52,6 @@ fun JobsRoute(
         onJobClick = onJobClick,
         onQueryChange = viewModel::onQueryChange,
         onTypeSelected = viewModel::onTypeSelected,
-        onBookmarkedOnlyToggle = viewModel::onBookmarkedOnlyToggle,
         onBookmarkClick = viewModel::onBookmarkClick,
         onRefresh = viewModel::refresh,
         onErrorShown = viewModel::onErrorShown,
@@ -67,7 +66,6 @@ fun JobsScreen(
     onJobClick: (String) -> Unit,
     onQueryChange: (String) -> Unit,
     onTypeSelected: (JobType?) -> Unit,
-    onBookmarkedOnlyToggle: () -> Unit,
     onBookmarkClick: (String) -> Unit,
     onRefresh: () -> Unit,
     onErrorShown: () -> Unit,
@@ -83,13 +81,14 @@ fun JobsScreen(
     Scaffold(
         topBar = { TopAppBar(title = { Text("PuskarUIN") }) },
         snackbarHost = { SnackbarHost(snackbarHostState) },
+        // The outer scaffold (bottom navigation) already handles the bottom inset.
+        contentWindowInsets = WindowInsets(0, 0, 0, 0),
     ) { padding ->
         Column(Modifier.padding(padding).fillMaxSize()) {
             SearchField(query = uiState.filter.query, onQueryChange = onQueryChange)
             FilterChips(
                 filter = uiState.filter,
                 onTypeSelected = onTypeSelected,
-                onBookmarkedOnlyToggle = onBookmarkedOnlyToggle,
             )
             PullToRefreshBox(
                 isRefreshing = uiState.isRefreshing,
@@ -144,20 +143,11 @@ private fun SearchField(query: String, onQueryChange: (String) -> Unit) {
 private fun FilterChips(
     filter: JobFilter,
     onTypeSelected: (JobType?) -> Unit,
-    onBookmarkedOnlyToggle: () -> Unit,
 ) {
     LazyRow(
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        item {
-            FilterChip(
-                selected = filter.bookmarkedOnly,
-                onClick = onBookmarkedOnlyToggle,
-                label = { Text("Tersimpan") },
-                leadingIcon = { Icon(Icons.Filled.Bookmark, contentDescription = null) },
-            )
-        }
         items(JobType.entries) { type ->
             FilterChip(
                 selected = filter.type == type,

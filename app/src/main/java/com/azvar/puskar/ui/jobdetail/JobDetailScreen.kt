@@ -13,6 +13,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.outlined.BookmarkBorder
+import androidx.compose.material.icons.outlined.Share
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
@@ -28,12 +29,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.azvar.puskar.domain.model.Job
+import com.azvar.puskar.ui.components.shareJob
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
@@ -53,6 +56,7 @@ fun JobDetailScreen(
     onBack: () -> Unit,
     onBookmarkClick: () -> Unit,
 ) {
+    val context = LocalContext.current
     Scaffold(
         topBar = {
             TopAppBar(
@@ -64,6 +68,9 @@ fun JobDetailScreen(
                 },
                 actions = {
                     if (uiState is JobDetailUiState.Success) {
+                        IconButton(onClick = { context.shareJob(uiState.job) }) {
+                            Icon(Icons.Outlined.Share, contentDescription = "Bagikan lowongan")
+                        }
                         IconButton(onClick = onBookmarkClick) {
                             Icon(
                                 imageVector = if (uiState.job.isBookmarked) Icons.Filled.Bookmark else Icons.Outlined.BookmarkBorder,

@@ -1,0 +1,98 @@
+[
+  {
+    "id": "evt-001",
+    "title": "Campus Hiring Day 2026",
+    "organizer": "Pusat Karier UIN Jakarta (contoh)",
+    "category": "JOB_FAIR",
+    "startAt": "2026-11-25T08:30",
+    "endAt": "2026-11-25T15:00",
+    "location": "Auditorium Harun Nasution",
+    "isOnline": false,
+    "description": "Bertemu langsung dengan perekrut dari puluhan perusahaan. Siapkan CV cetak dan berpakaian rapi. Terbuka untuk mahasiswa tingkat akhir dan alumni.",
+    "registrationUrl": "https://example.com/daftar/evt-001"
+  },
+  {
+    "id": "evt-002",
+    "title": "Workshop CV & LinkedIn yang Dilirik HR",
+    "organizer": "Pusat Karier UIN Jakarta (contoh)",
+    "category": "WORKSHOP",
+    "startAt": "2026-11-19T13:00",
+    "endAt": "2026-11-19T15:30",
+    "location": "Ruang Teater FST",
+    "isOnline": false,
+    "description": "Praktik langsung memperbaiki CV dan profil LinkedIn bersama praktisi HR. Bawa laptop dan CV versi terbaru.",
+    "registrationUrl": "https://example.com/daftar/evt-002"
+  },
+  {
+    "id": "evt-003",
+    "title": "Webinar: Karier di Bidang Data",
+    "organizer": "Komunitas Data (contoh)",
+    "category": "WEBINAR",
+    "startAt": "2026-11-21T19:30",
+    "endAt": "2026-11-21T21:00",
+    "location": "Online · Zoom",
+    "isOnline": true,
+    "description": "Mengenal peran data analyst, data engineer, dan data scientist, plus tips magang pertama di bidang data.",
+    "registrationUrl": "https://example.com/daftar/evt-003"
+  },
+  {
+    "id": "evt-004",
+    "title": "Company Visit ke Perusahaan Teknologi",
+    "organizer": "Pusat Karier UIN Jakarta (contoh)",
+    "category": "COMPANY_VISIT",
+    "startAt": "2026-12-03T09:00",
+    "endAt": "2026-12-03T12:00",
+    "location": "Jakarta Selatan",
+    "isOnline": false,
+    "description": "Kunjungan ke kantor perusahaan teknologi untuk melihat langsung budaya kerja tim engineering. Kuota terbatas 30 orang.",
+    "registrationUrl": "https://example.com/daftar/evt-004"
+  },
+  {
+    "id": "evt-005",
+    "title": "Webinar: Lolos Tes Psikotes & Interview",
+    "organizer": "Pusat Karier UIN Jakarta (contoh)",
+    "category": "WEBINAR",
+    "startAt": "2026-12-10T10:00",
+    "endAt": "2026-12-10T11:30",
+    "location": "Online · Google Meet",
+    "isOnline": true,
+    "description": "Strategi menghadapi psikotes, interview HR, dan interview user, lengkap dengan simulasi tanya-jawab.",
+    "registrationUrl": "https://example.com/daftar/evt-005"
+  },
+  {
+    "id": "evt-006",
+    "title": "Mock Interview Bersama Alumni",
+    "organizer": "Ikatan Alumni (contoh)",
+    "category": "WORKSHOP",
+    "startAt": "2026-12-14T09:00",
+    "endAt": "2026-12-14T12:00",
+    "location": "Gedung Student Center",
+    "isOnline": false,
+    "description": "Latihan interview satu lawan satu dengan alumni yang sudah bekerja, lengkap dengan umpan balik langsung.",
+    "registrationUrl": "https://example.com/daftar/evt-006"
+  },
+  {
+    "id": "evt-007",
+    "title": "Webinar: Persiapan Magang Bersertifikat",
+    "organizer": "Pusat Karier UIN Jakarta (contoh)",
+    "category": "WEBINAR",
+    "startAt": "2026-11-05T13:00",
+    "endAt": "2026-11-05T14:30",
+    "location": "Online · Zoom",
+    "isOnline": true,
+    "description": "Tips memilih program magang, menyusun motivation letter, dan membagi waktu antara kuliah dan magang.",
+    "registrationUrl": "https://example.com/daftar/evt-007"
+  },
+  {
+    "id": "evt-008",
+    "title": "Career Talk: Dari Kampus ke Startup",
+    "organizer": "Komunitas Startup (contoh)",
+    "category": "WORKSHOP",
+    "startAt": "2026-10-28T15:00",
+    "endAt": "2026-10-28T17:00",
+    "location": "Aula Madya",
+    "isOnline": false,
+    "description": "Cerita alumni yang berkarier di startup: proses rekrutmen, skill yang dicari, dan suka-duka bekerja di startup.",
+    "registrationUrl": "https://example.com/daftar/evt-008"
+  }
+]

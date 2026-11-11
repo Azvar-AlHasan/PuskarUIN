@@ -78,14 +78,12 @@ class JobsViewModelTest {
     }
 
     @Test
-    fun `bookmarking updates the list and the saved filter`() = runTest {
+    fun `bookmarking updates the list`() = runTest {
         val viewModel = JobsViewModel(repository)
         viewModel.uiState.test {
             awaitItem()
             viewModel.onBookmarkClick("2")
             assertTrue(awaitItem().jobs.first { it.id == "2" }.isBookmarked)
-            viewModel.onBookmarkedOnlyToggle()
-            assertEquals(listOf("2"), awaitItem().jobs.map { it.id })
         }
     }
 

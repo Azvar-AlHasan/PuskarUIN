@@ -72,8 +72,6 @@ class JobsViewModel @Inject constructor(
     fun onTypeSelected(type: JobType?) =
         filter.update { it.copy(type = if (it.type == type) null else type) }
 
-    fun onBookmarkedOnlyToggle() = filter.update { it.copy(bookmarkedOnly = !it.bookmarkedOnly) }
-
     fun onBookmarkClick(jobId: String) {
         viewModelScope.launch { repository.toggleBookmark(jobId) }
     }
