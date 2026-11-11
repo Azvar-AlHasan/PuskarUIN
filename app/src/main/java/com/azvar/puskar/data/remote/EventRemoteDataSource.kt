@@ -1,14 +1,8 @@
 package com.azvar.puskar.data.remote
 
-import android.content.Context
 import com.azvar.puskar.data.local.EventEntity
-import dagger.hilt.android.qualifiers.ApplicationContext
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.withContext
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.json.Json
 import java.time.LocalDateTime
-import javax.inject.Inject
 
 interface EventRemoteDataSource {
     suspend fun fetchEvents(): List<EventDto>
@@ -42,16 +36,3 @@ fun EventDto.toEntity(): EventEntity = EventEntity(
     isOnline = isOnline,
     registrationUrl = registrationUrl,
 )
-
-class AssetEventRemoteDataSource @Inject constructor(
-    @param:ApplicationContext private val context: Context,
-    @param:IoDispatcher private val ioDispatcher: CoroutineDispatcher,
-) : EventRemoteDataSource {
-
-    private val json = Json { ignoreUnknownKeys = true }
-
-    override suspend fun fetchEvents(): List<EventDto> = withContext(ioDispatcher) {
-        val raw = context.assets.open("events.json").bufferedReader().use { it.readText() }
-        json.decodeFromString<List<EventDto>>(raw)
-    }
-}

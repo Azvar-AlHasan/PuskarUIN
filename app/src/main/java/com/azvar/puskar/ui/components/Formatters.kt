@@ -1,7 +1,9 @@
 package com.azvar.puskar.ui.components
 
 import com.azvar.puskar.domain.model.CareerEvent
+import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import java.time.temporal.ChronoUnit
 import java.util.Locale
 
 private val ID = Locale.forLanguageTag("id-ID")
@@ -21,3 +23,27 @@ fun CareerEvent.formattedShortSchedule(): String {
 
 /** "09.00–15.00 WIB" */
 fun CareerEvent.formattedTimeRange(): String = "${startAt.format(TIME)}–${endAt.format(TIME)} WIB"
+
+/** "Hari ini", "Kemarin", "3 hari lalu", "2 minggu lalu" */
+fun relativePostedLabel(postedAt: LocalDate, today: LocalDate): String {
+    val days = ChronoUnit.DAYS.between(postedAt, today)
+    return when {
+        days <= 0 -> "Hari ini"
+        days == 1L -> "Kemarin"
+        days < 7 -> "$days hari lalu"
+        days < 30 -> "${days / 7} minggu lalu"
+        else -> "${days / 30} bulan lalu"
+    }
+}
+
+/** "Ditutup", "Tutup hari ini", "3 hari lagi" */
+fun deadlineLabel(deadline: LocalDate, today: LocalDate): String {
+    val days = ChronoUnit.DAYS.between(today, deadline)
+    return when {
+        days < 0 -> "Ditutup"
+        days == 0L -> "Tutup hari ini"
+        else -> "$days hari lagi"
+    }
+}
+
+fun LocalDate.formattedLong(): String = format(DateTimeFormatter.ofPattern("d MMMM yyyy", ID))

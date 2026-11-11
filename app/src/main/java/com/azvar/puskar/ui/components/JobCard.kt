@@ -11,15 +11,17 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.outlined.BookmarkBorder
 import androidx.compose.material.icons.outlined.LocationOn
-import androidx.compose.material3.AssistChip
+import androidx.compose.material.icons.outlined.Payments
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -29,6 +31,7 @@ import com.azvar.puskar.core.designsystem.PuskarTheme
 import com.azvar.puskar.domain.model.Job
 import com.azvar.puskar.domain.model.JobType
 import com.azvar.puskar.domain.model.WorkMode
+import com.azvar.puskar.domain.model.isClosed
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 
@@ -40,9 +43,12 @@ fun JobCard(
     modifier: Modifier = Modifier,
     today: LocalDate = LocalDate.now(),
 ) {
-    Card(onClick = onClick, modifier = modifier.fillMaxWidth()) {
-        Column(Modifier.padding(16.dp)) {
+    val closed = job.isClosed(today)
+    Card(onClick = onClick, modifier = modifier.fillMaxWidth().alpha(if (closed) 0.6f else 1f)) {
+        Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
             Row(verticalAlignment = Alignment.Top) {
+                CompanyLogo(job.company)
+                Spacer(Modifier.width(12.dp))
                 Column(Modifier.weight(1f)) {
                     Text(
                         text = job.title,
@@ -65,41 +71,59 @@ fun JobCard(
                     )
                 }
             }
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Icon(
-                    Icons.Outlined.LocationOn,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-                Spacer(Modifier.width(4.dp))
-                Text(
-                    text = "${job.location} · ${job.workMode.label}",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
+            Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                InfoRow(Icons.Outlined.LocationOn, "${job.location} · ${job.workMode.label}")
+                job.salary?.let { InfoRow(Icons.Outlined.Payments, it) }
             }
             Row(
-                modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
-                horizontalArrangement = Arrangement.SpaceBetween,
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                AssistChip(onClick = {}, label = { Text(job.type.label) })
+                Tag(job.type.label)
+                Text(
+                    relativePostedLabel(job.postedAt, today),
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.weight(1f),
+                )
                 DeadlineLabel(deadline = job.deadline, today = today)
             }
         }
     }
 }
 
+/** Small non-interactive label. Uses Surface (not a chip) so screen readers don't announce it as a button. */
+@Composable
+fun Tag(text: String, modifier: Modifier = Modifier) {
+    Surface(
+        modifier = modifier,
+        color = MaterialTheme.colorScheme.secondaryContainer,
+        contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+        shape = MaterialTheme.shapes.small,
+    ) {
+        Text(
+            text,
+            style = MaterialTheme.typography.labelMedium,
+            modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp),
+        )
+    }
+}
+
 @Composable
 private fun DeadlineLabel(deadline: LocalDate, today: LocalDate) {
     val daysLeft = ChronoUnit.DAYS.between(today, deadline)
-    val (text, color) = when {
-        daysLeft < 0 -> "Ditutup" to MaterialTheme.colorScheme.onSurfaceVariant
-        daysLeft == 0L -> "Tutup hari ini" to MaterialTheme.colorScheme.error
-        daysLeft <= 7 -> "$daysLeft hari lagi" to MaterialTheme.colorScheme.error
-        else -> "$daysLeft hari lagi" to Color.Unspecified
+    val color = when {
+        daysLeft < 0 -> MaterialTheme.colorScheme.onSurfaceVariant
+        daysLeft <= 7 -> MaterialTheme.colorScheme.error
+        else -> Color.Unspecified
     }
-    Text(text = text, style = MaterialTheme.typography.labelMedium, color = color)
+    Text(
+        text = deadlineLabel(deadline, today),
+        style = MaterialTheme.typography.labelMedium,
+        fontWeight = FontWeight.Medium,
+        color = color,
+    )
 }
 
 @Preview(showBackground = true)
@@ -110,12 +134,17 @@ private fun JobCardPreview() {
             job = Job(
                 id = "1",
                 title = "Android Developer Intern",
-                company = "PT Contoh Teknologi",
+                company = "Kirana Teknologi",
+                industry = "Teknologi",
+                companyAbout = "",
                 location = "Jakarta Selatan",
                 type = JobType.INTERNSHIP,
                 workMode = WorkMode.HYBRID,
                 description = "",
                 requirements = emptyList(),
+                benefits = emptyList(),
+                salary = "Uang saku Rp3,5 jt/bulan",
+                postedAt = LocalDate.now().minusDays(3),
                 deadline = LocalDate.now().plusDays(5),
                 applyUrl = "",
                 isBookmarked = true,

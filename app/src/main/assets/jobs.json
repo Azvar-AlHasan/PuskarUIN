@@ -2,125 +2,401 @@
   {
     "id": "job-001",
     "title": "Android Developer Intern",
-    "company": "PT Nusantara Digital (contoh)",
+    "company": "Kirana Teknologi",
+    "industry": "Teknologi",
+    "companyAbout": "Perusahaan pengembang aplikasi layanan publik dan fintech yang dipakai lebih dari dua juta pengguna di Indonesia.",
     "location": "Jakarta Selatan",
     "type": "INTERNSHIP",
     "workMode": "HYBRID",
-    "deadline": "2026-11-28",
-    "description": "Bergabung dengan tim mobile untuk membangun fitur aplikasi Android berbasis Jetpack Compose.",
+    "postedDaysAgo": 3,
+    "deadlineInDays": 12,
+    "salary": "Uang saku Rp3,5 jt/bulan",
+    "description": "Bergabung dengan tim mobile untuk membangun dan memelihara fitur aplikasi Android berbasis Jetpack Compose. Kamu akan bekerja bersama mentor senior, ikut code review, dan merilis fitur ke pengguna sungguhan.",
     "requirements": [
-      "Mahasiswa aktif semester 5 ke atas",
+      "Mahasiswa aktif minimal semester 5 jurusan Sistem Informasi, Teknik Informatika, atau sejenis",
       "Memahami Kotlin dan dasar Jetpack Compose",
-      "Familiar dengan Git"
+      "Familiar dengan Git dan REST API",
+      "Bersedia magang minimal 6 bulan"
     ],
-    "applyUrl": "https://example.com/lamar/job-001"
+    "benefits": [
+      "Mentor khusus selama magang",
+      "Laptop kerja",
+      "Sertifikat dan surat rekomendasi",
+      "Peluang diangkat menjadi karyawan"
+    ],
+    "applyUrl": "https://karir.uinjkt.ac.id"
   },
   {
     "id": "job-002",
     "title": "Data Analyst Intern",
-    "company": "Bank Sejahtera (contoh)",
+    "company": "Wiradana Finance",
+    "industry": "Keuangan",
+    "companyAbout": "Lembaga pembiayaan syariah yang melayani UMKM di Jabodetabek dan Jawa Barat.",
     "location": "Jakarta Pusat",
     "type": "INTERNSHIP",
     "workMode": "ONSITE",
-    "deadline": "2026-12-05",
-    "description": "Membantu tim analitik menyiapkan dashboard dan laporan bulanan.",
+    "postedDaysAgo": 5,
+    "deadlineInDays": 6,
+    "salary": "Uang saku Rp3 jt/bulan",
+    "description": "Membantu tim analitik menyiapkan dashboard kinerja pembiayaan, membersihkan data, dan menyusun laporan bulanan untuk manajemen.",
     "requirements": [
-      "Menguasai SQL dan Excel",
+      "Menguasai SQL dan Microsoft Excel",
       "Pengalaman dengan Python (pandas) menjadi nilai tambah",
-      "Teliti dan komunikatif"
+      "Teliti dan mampu menjelaskan temuan data dengan sederhana"
     ],
-    "applyUrl": "https://example.com/lamar/job-002"
+    "benefits": [
+      "Uang makan harian",
+      "Pelatihan Power BI",
+      "Sertifikat magang"
+    ],
+    "applyUrl": "https://karir.uinjkt.ac.id"
   },
   {
     "id": "job-003",
     "title": "Junior Backend Engineer",
-    "company": "Startup Edutech (contoh)",
+    "company": "Lentera Edukasi",
+    "industry": "Edutech",
+    "companyAbout": "Platform belajar daring untuk siswa SMA dan mahasiswa dengan lebih dari 500 ribu pengguna aktif.",
     "location": "Tangerang Selatan",
     "type": "FULL_TIME",
     "workMode": "HYBRID",
-    "deadline": "2026-12-20",
-    "description": "Mengembangkan dan memelihara REST API untuk platform pembelajaran daring.",
+    "postedDaysAgo": 8,
+    "deadlineInDays": 21,
+    "salary": "Rp7–9 jt/bulan",
+    "description": "Mengembangkan dan memelihara REST API untuk platform pembelajaran, menulis unit test, dan memantau performa layanan di production.",
     "requirements": [
-      "Lulusan S1 Sistem Informasi/Informatika atau setara",
-      "Pengalaman FastAPI, Django, atau Node.js",
-      "Memahami basis data relasional"
+      "Lulusan S1 Sistem Informasi, Teknik Informatika, atau setara",
+      "Pengalaman dengan FastAPI, Django, atau Node.js",
+      "Memahami PostgreSQL dan desain basis data relasional",
+      "Terbiasa menulis unit test"
     ],
-    "applyUrl": "https://example.com/lamar/job-003"
+    "benefits": [
+      "BPJS Kesehatan dan Ketenagakerjaan",
+      "Asuransi kesehatan swasta",
+      "Budget belajar tahunan",
+      "2 hari WFH per minggu"
+    ],
+    "applyUrl": "https://karir.uinjkt.ac.id"
   },
   {
     "id": "job-004",
     "title": "UI/UX Designer Intern",
-    "company": "Agensi Kreatif (contoh)",
+    "company": "Arunika Kreatif",
+    "industry": "Agensi Digital",
+    "companyAbout": "Agensi desain produk digital yang menangani klien startup dan BUMN.",
     "location": "Indonesia",
     "type": "INTERNSHIP",
     "workMode": "REMOTE",
-    "deadline": "2026-11-20",
-    "description": "Merancang alur dan antarmuka aplikasi mobile bersama tim produk.",
+    "postedDaysAgo": 2,
+    "deadlineInDays": 9,
+    "salary": "Uang saku Rp2,5 jt/bulan",
+    "description": "Merancang alur pengguna, wireframe, dan prototipe antarmuka aplikasi mobile bersama tim produk, lalu menguji desain dengan pengguna.",
     "requirements": [
       "Portofolio desain di Figma",
-      "Memahami prinsip design thinking"
+      "Memahami prinsip design thinking dan usability",
+      "Mampu berkomunikasi dengan baik secara daring"
     ],
-    "applyUrl": "https://example.com/lamar/job-004"
+    "benefits": [
+      "Kerja dari mana saja",
+      "Mentoring dari Lead Designer",
+      "Sertifikat magang"
+    ],
+    "applyUrl": "https://karir.uinjkt.ac.id"
   },
   {
     "id": "job-005",
     "title": "Asisten Riset Paruh Waktu",
-    "company": "Pusat Penelitian Kampus (contoh)",
+    "company": "Pusat Kajian Kebijakan Publik",
+    "industry": "Riset",
+    "companyAbout": "Lembaga riset independen yang fokus pada kebijakan pendidikan dan ketenagakerjaan.",
     "location": "Ciputat",
     "type": "PART_TIME",
     "workMode": "ONSITE",
-    "deadline": "2026-12-12",
-    "description": "Membantu pengumpulan dan pengolahan data penelitian dosen.",
+    "postedDaysAgo": 6,
+    "deadlineInDays": 14,
+    "salary": "Rp1,5 jt/bulan",
+    "description": "Membantu pengumpulan data lapangan, input dan pengolahan data survei, serta penyusunan laporan penelitian.",
     "requirements": [
       "Mahasiswa aktif UIN Jakarta",
-      "Menguasai statistik dasar",
+      "Menguasai statistik dasar dan SPSS atau R",
       "Bersedia bekerja 15 jam per minggu"
     ],
-    "applyUrl": "https://example.com/lamar/job-005"
+    "benefits": [
+      "Jam kerja fleksibel",
+      "Nama tercantum di laporan penelitian"
+    ],
+    "applyUrl": "https://karir.uinjkt.ac.id"
   },
   {
     "id": "job-006",
     "title": "Cloud Engineer Intern",
-    "company": "Perusahaan Telekomunikasi (contoh)",
+    "company": "Cakra Telekomunikasi",
+    "industry": "Telekomunikasi",
+    "companyAbout": "Penyedia layanan jaringan dan data center untuk korporasi di Indonesia.",
     "location": "Jakarta Barat",
     "type": "INTERNSHIP",
     "workMode": "ONSITE",
-    "deadline": "2027-01-10",
-    "description": "Mendukung tim infrastruktur dalam migrasi layanan ke cloud.",
+    "postedDaysAgo": 10,
+    "deadlineInDays": 28,
+    "salary": "Uang saku Rp4 jt/bulan",
+    "description": "Mendukung tim infrastruktur dalam migrasi layanan ke cloud, otomasi deployment, dan pemantauan sistem.",
     "requirements": [
       "Memahami dasar jaringan dan Linux",
-      "Pernah menggunakan Google Cloud atau penyedia cloud lain"
+      "Pernah menggunakan Google Cloud, AWS, atau Azure",
+      "Familiar dengan Docker menjadi nilai tambah"
     ],
-    "applyUrl": "https://example.com/lamar/job-006"
+    "benefits": [
+      "Voucher sertifikasi cloud",
+      "Uang transport",
+      "Sertifikat magang"
+    ],
+    "applyUrl": "https://karir.uinjkt.ac.id"
   },
   {
     "id": "job-007",
     "title": "Social Media Specialist",
-    "company": "UMKM Kuliner (contoh)",
+    "company": "Rumah Kopi Senja",
+    "industry": "F&B",
+    "companyAbout": "Jaringan kedai kopi lokal dengan 12 cabang di Tangerang Selatan dan Jakarta.",
     "location": "Ciputat",
     "type": "PART_TIME",
     "workMode": "HYBRID",
-    "deadline": "2026-12-01",
-    "description": "Mengelola konten Instagram dan TikTok serta menganalisis performanya.",
+    "postedDaysAgo": 1,
+    "deadlineInDays": 10,
+    "salary": "Rp2 jt/bulan",
+    "description": "Mengelola konten Instagram dan TikTok, membuat kalender konten, serta menganalisis performa unggahan setiap minggu.",
     "requirements": [
-      "Kreatif dan mengikuti tren",
-      "Mampu mengedit video pendek"
+      "Kreatif dan mengikuti tren media sosial",
+      "Mampu mengedit video pendek (CapCut atau sejenis)",
+      "Memiliki portofolio konten"
     ],
-    "applyUrl": "https://example.com/lamar/job-007"
+    "benefits": [
+      "Jam kerja fleksibel",
+      "Gratis minuman setiap shift"
+    ],
+    "applyUrl": "https://karir.uinjkt.ac.id"
   },
   {
     "id": "job-008",
     "title": "IT Support",
-    "company": "Rumah Sakit Swasta (contoh)",
+    "company": "Sinergi Medika",
+    "industry": "Kesehatan",
+    "companyAbout": "Grup klinik dan laboratorium kesehatan dengan 20 cabang di Jabodetabek.",
     "location": "Depok",
     "type": "FULL_TIME",
     "workMode": "ONSITE",
-    "deadline": "2027-01-05",
-    "description": "Menangani perawatan perangkat, jaringan, dan sistem informasi rumah sakit.",
+    "postedDaysAgo": 12,
+    "deadlineInDays": 18,
+    "salary": "Rp5–6 jt/bulan",
+    "description": "Menangani perawatan perangkat, jaringan, dan sistem informasi klinik, serta membantu pengguna menyelesaikan kendala teknis.",
     "requirements": [
       "Lulusan D3/S1 bidang TI",
-      "Memahami troubleshooting hardware dan jaringan"
+      "Memahami troubleshooting hardware, Windows, dan jaringan",
+      "Bersedia ditempatkan di cabang Depok"
     ],
-    "applyUrl": "https://example.com/lamar/job-008"
+    "benefits": [
+      "BPJS Kesehatan dan Ketenagakerjaan",
+      "Tunjangan transport",
+      "Pemeriksaan kesehatan gratis"
+    ],
+    "applyUrl": "https://karir.uinjkt.ac.id"
+  },
+  {
+    "id": "job-009",
+    "title": "Business Analyst",
+    "company": "Samudra Fintech",
+    "industry": "Fintech",
+    "companyAbout": "Startup pembayaran digital untuk pedagang tradisional dan UMKM.",
+    "location": "Jakarta Selatan",
+    "type": "FULL_TIME",
+    "workMode": "HYBRID",
+    "postedDaysAgo": 4,
+    "deadlineInDays": 25,
+    "salary": "Rp8–10 jt/bulan",
+    "description": "Menerjemahkan kebutuhan bisnis menjadi spesifikasi produk, memetakan proses bisnis, dan menjembatani tim bisnis dengan tim engineering.",
+    "requirements": [
+      "Lulusan S1 Sistem Informasi atau Manajemen",
+      "Memahami BPMN dan analisis kebutuhan",
+      "Mampu menulis dokumen PRD dan user story",
+      "Pengalaman magang di bidang terkait menjadi nilai tambah"
+    ],
+    "benefits": [
+      "Saham karyawan (ESOP)",
+      "Asuransi kesehatan keluarga",
+      "Laptop kerja"
+    ],
+    "applyUrl": "https://karir.uinjkt.ac.id"
+  },
+  {
+    "id": "job-010",
+    "title": "Cyber Security Analyst Intern",
+    "company": "Garda Siber Indonesia",
+    "industry": "Keamanan Siber",
+    "companyAbout": "Konsultan keamanan siber yang melayani perbankan dan instansi pemerintah.",
+    "location": "Jakarta Pusat",
+    "type": "INTERNSHIP",
+    "workMode": "ONSITE",
+    "postedDaysAgo": 7,
+    "deadlineInDays": 16,
+    "salary": "Uang saku Rp3,5 jt/bulan",
+    "description": "Membantu tim SOC memantau log keamanan, menganalisis insiden, dan menyusun laporan kerentanan.",
+    "requirements": [
+      "Memahami dasar jaringan dan sistem operasi Linux",
+      "Pernah mengikuti CTF atau memiliki sertifikasi keamanan dasar",
+      "Mampu bekerja dengan jadwal shift"
+    ],
+    "benefits": [
+      "Pelatihan keamanan siber bersertifikat",
+      "Uang makan",
+      "Sertifikat magang"
+    ],
+    "applyUrl": "https://karir.uinjkt.ac.id"
+  },
+  {
+    "id": "job-011",
+    "title": "Content Writer",
+    "company": "Pijar Media",
+    "industry": "Media",
+    "companyAbout": "Media daring yang membahas karier, teknologi, dan gaya hidup anak muda.",
+    "location": "Indonesia",
+    "type": "PART_TIME",
+    "workMode": "REMOTE",
+    "postedDaysAgo": 9,
+    "deadlineInDays": 7,
+    "salary": "Rp150 rb/artikel",
+    "description": "Menulis artikel seputar karier dan pengembangan diri sesuai pedoman SEO, minimal 8 artikel per bulan.",
+    "requirements": [
+      "Mampu menulis dalam Bahasa Indonesia yang baik dan menarik",
+      "Memahami dasar SEO",
+      "Melampirkan contoh tulisan"
+    ],
+    "benefits": [
+      "Kerja dari mana saja",
+      "Nama penulis tercantum di artikel"
+    ],
+    "applyUrl": "https://karir.uinjkt.ac.id"
+  },
+  {
+    "id": "job-012",
+    "title": "Management Trainee",
+    "company": "Bumi Logistik Nusantara",
+    "industry": "Logistik",
+    "companyAbout": "Perusahaan logistik dan pergudangan dengan jaringan di 30 kota.",
+    "location": "Bekasi",
+    "type": "FULL_TIME",
+    "workMode": "ONSITE",
+    "postedDaysAgo": 14,
+    "deadlineInDays": 30,
+    "salary": "Rp6,5 jt/bulan",
+    "description": "Program pengembangan 12 bulan dengan rotasi di divisi operasional, keuangan, dan pemasaran sebelum ditempatkan sebagai supervisor.",
+    "requirements": [
+      "Lulusan S1 semua jurusan dengan IPK minimal 3,00",
+      "Usia maksimal 26 tahun",
+      "Bersedia ditempatkan di seluruh Indonesia"
+    ],
+    "benefits": [
+      "Program pelatihan terstruktur",
+      "Tunjangan penempatan",
+      "Jenjang karier yang jelas"
+    ],
+    "applyUrl": "https://karir.uinjkt.ac.id"
+  },
+  {
+    "id": "job-013",
+    "title": "Frontend Developer Intern",
+    "company": "Langit Cloud",
+    "industry": "Teknologi",
+    "companyAbout": "Penyedia layanan cloud hosting lokal untuk UMKM dan startup.",
+    "location": "Indonesia",
+    "type": "INTERNSHIP",
+    "workMode": "REMOTE",
+    "postedDaysAgo": 2,
+    "deadlineInDays": 20,
+    "salary": "Uang saku Rp3 jt/bulan",
+    "description": "Membangun antarmuka dashboard pelanggan dengan React dan TypeScript, serta memperbaiki aksesibilitas halaman.",
+    "requirements": [
+      "Memahami HTML, CSS, dan JavaScript",
+      "Pernah membuat proyek dengan React atau Vue",
+      "Memahami Git"
+    ],
+    "benefits": [
+      "Kerja dari mana saja",
+      "Kredit cloud gratis",
+      "Sertifikat magang"
+    ],
+    "applyUrl": "https://karir.uinjkt.ac.id"
+  },
+  {
+    "id": "job-014",
+    "title": "Staf Administrasi Akademik",
+    "company": "Lentera Edukasi",
+    "industry": "Edutech",
+    "companyAbout": "Platform belajar daring untuk siswa SMA dan mahasiswa dengan lebih dari 500 ribu pengguna aktif.",
+    "location": "Tangerang Selatan",
+    "type": "FULL_TIME",
+    "workMode": "ONSITE",
+    "postedDaysAgo": 11,
+    "deadlineInDays": 4,
+    "salary": null,
+    "description": "Mengelola jadwal kelas, data peserta, dan komunikasi dengan pengajar.",
+    "requirements": [
+      "Lulusan D3/S1 semua jurusan",
+      "Menguasai Microsoft Office dan Google Workspace",
+      "Teliti dan rapi dalam administrasi"
+    ],
+    "benefits": [
+      "BPJS Kesehatan dan Ketenagakerjaan",
+      "Akses gratis semua kelas"
+    ],
+    "applyUrl": "https://karir.uinjkt.ac.id"
+  },
+  {
+    "id": "job-015",
+    "title": "Machine Learning Engineer Intern",
+    "company": "Sagara Analytics",
+    "industry": "Teknologi",
+    "companyAbout": "Perusahaan solusi data dan kecerdasan buatan untuk sektor ritel.",
+    "location": "Jakarta Selatan",
+    "type": "INTERNSHIP",
+    "workMode": "HYBRID",
+    "postedDaysAgo": 5,
+    "deadlineInDays": 23,
+    "salary": "Uang saku Rp4 jt/bulan",
+    "description": "Membangun dan mengevaluasi model rekomendasi produk, menyiapkan pipeline data, dan mendokumentasikan eksperimen.",
+    "requirements": [
+      "Menguasai Python, pandas, dan scikit-learn",
+      "Memahami konsep supervised learning dan evaluasi model",
+      "Pengalaman kompetisi data menjadi nilai tambah"
+    ],
+    "benefits": [
+      "Akses GPU untuk eksperimen",
+      "Mentoring dari Data Scientist senior",
+      "Sertifikat magang"
+    ],
+    "applyUrl": "https://karir.uinjkt.ac.id"
+  },
+  {
+    "id": "job-016",
+    "title": "Customer Success Associate",
+    "company": "Samudra Fintech",
+    "industry": "Fintech",
+    "companyAbout": "Startup pembayaran digital untuk pedagang tradisional dan UMKM.",
+    "location": "Jakarta Selatan",
+    "type": "FULL_TIME",
+    "workMode": "ONSITE",
+    "postedDaysAgo": 20,
+    "deadlineInDays": -3,
+    "salary": "Rp5 jt/bulan",
+    "description": "Mendampingi mitra pedagang selama proses onboarding dan menjawab pertanyaan mereka melalui telepon dan chat.",
+    "requirements": [
+      "Lulusan D3/S1 semua jurusan",
+      "Komunikatif dan sabar",
+      "Bersedia bekerja dengan sistem shift"
+    ],
+    "benefits": [
+      "BPJS Kesehatan dan Ketenagakerjaan",
+      "Bonus kinerja bulanan"
+    ],
+    "applyUrl": "https://karir.uinjkt.ac.id"
   }
 ]

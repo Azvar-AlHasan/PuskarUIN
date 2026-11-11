@@ -33,7 +33,6 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
-import androidx.compose.material3.SuggestionChip
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -50,6 +49,7 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.azvar.puskar.domain.model.CareerEvent
 import com.azvar.puskar.ui.components.InfoRow
+import com.azvar.puskar.ui.components.Tag
 import com.azvar.puskar.ui.components.addToCalendar
 import com.azvar.puskar.ui.components.formattedDate
 import com.azvar.puskar.ui.components.formattedTimeRange
@@ -142,7 +142,7 @@ private fun EventDetailContent(
         modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
-        SuggestionChip(onClick = {}, label = { Text(event.category.label) })
+        Tag(event.category.label)
         Text(event.title, style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
         InfoRow(Icons.Outlined.Person, event.organizer)
         InfoRow(Icons.Outlined.CalendarMonth, event.formattedDate())

@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.BookmarkBorder
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -21,7 +23,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.ViewModel
@@ -32,6 +33,7 @@ import com.azvar.puskar.data.repository.JobRepository
 import com.azvar.puskar.domain.model.CareerEvent
 import com.azvar.puskar.domain.model.Job
 import com.azvar.puskar.domain.model.nowInEventZone
+import com.azvar.puskar.ui.components.EmptyState
 import com.azvar.puskar.ui.components.EventCard
 import com.azvar.puskar.ui.components.JobCard
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -112,10 +114,11 @@ fun SavedScreen(
         Box(Modifier.padding(padding).fillMaxSize()) {
             when {
                 uiState.isLoading -> CircularProgressIndicator(Modifier.align(Alignment.Center))
-                uiState.isEmpty -> Text(
-                    "Belum ada yang tersimpan.\nTekan ikon bookmark di lowongan atau ikon lonceng di event.",
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.align(Alignment.Center).padding(32.dp),
+                uiState.isEmpty -> EmptyState(
+                    icon = Icons.Outlined.BookmarkBorder,
+                    title = "Belum ada yang tersimpan",
+                    message = "Tekan ikon bookmark pada lowongan atau ikon lonceng pada event untuk menyimpannya di sini.",
+                    modifier = Modifier.align(Alignment.Center),
                 )
                 else -> LazyColumn(
                     contentPadding = PaddingValues(16.dp),
