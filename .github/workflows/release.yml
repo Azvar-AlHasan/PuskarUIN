@@ -34,6 +34,12 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "$GITHUB_REF_NAME" "PuskarUIN-${GITHUB_REF_NAME}.apk" \
-            --title "PuskarUIN ${GITHUB_REF_NAME}" \
-            --notes-file docs/release-notes/${GITHUB_REF_NAME}.md
+          APK="PuskarUIN-${GITHUB_REF_NAME}.apk"
+          # The release may already exist if it was drafted on GitHub; then just attach the APK.
+          if gh release view "$GITHUB_REF_NAME" > /dev/null 2>&1; then
+            gh release upload "$GITHUB_REF_NAME" "$APK" --clobber
+          else
+            gh release create "$GITHUB_REF_NAME" "$APK" \
+              --title "PuskarUIN ${GITHUB_REF_NAME}" \
+              --notes-file "docs/release-notes/${GITHUB_REF_NAME}.md"
+          fi
