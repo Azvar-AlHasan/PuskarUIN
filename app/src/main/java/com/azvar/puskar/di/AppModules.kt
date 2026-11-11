@@ -8,15 +8,17 @@ import com.azvar.puskar.data.local.JobDao
 import com.azvar.puskar.data.local.PuskarDatabase
 import com.azvar.puskar.data.reminder.EventReminderScheduler
 import com.azvar.puskar.data.reminder.WorkManagerEventReminderScheduler
-import com.azvar.puskar.data.remote.AssetEventRemoteDataSource
-import com.azvar.puskar.data.remote.AssetJobRemoteDataSource
 import com.azvar.puskar.data.remote.EventRemoteDataSource
 import com.azvar.puskar.data.remote.IoDispatcher
 import com.azvar.puskar.data.remote.JobRemoteDataSource
+import com.azvar.puskar.data.remote.demo.DemoEventDataSource
+import com.azvar.puskar.data.remote.demo.DemoJobDataSource
 import com.azvar.puskar.data.repository.EventRepository
 import com.azvar.puskar.data.repository.JobRepository
 import com.azvar.puskar.data.repository.OfflineFirstEventRepository
 import com.azvar.puskar.data.repository.OfflineFirstJobRepository
+import com.azvar.puskar.data.settings.DataStoreSettingsRepository
+import com.azvar.puskar.data.settings.SettingsRepository
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -68,12 +70,15 @@ abstract class DataModule {
     @Singleton
     abstract fun bindEventRepository(impl: OfflineFirstEventRepository): EventRepository
 
-    /** Swap these bindings for Firestore implementations in the next milestone. */
+    /** Data sources: bind a backend implementation here to replace the bundled demo dataset. */
     @Binds
-    abstract fun bindJobRemoteDataSource(impl: AssetJobRemoteDataSource): JobRemoteDataSource
+    abstract fun bindJobRemoteDataSource(impl: DemoJobDataSource): JobRemoteDataSource
 
     @Binds
-    abstract fun bindEventRemoteDataSource(impl: AssetEventRemoteDataSource): EventRemoteDataSource
+    abstract fun bindEventRemoteDataSource(impl: DemoEventDataSource): EventRemoteDataSource
+
+    @Binds
+    abstract fun bindSettingsRepository(impl: DataStoreSettingsRepository): SettingsRepository
 
     @Binds
     abstract fun bindEventReminderScheduler(impl: WorkManagerEventReminderScheduler): EventReminderScheduler

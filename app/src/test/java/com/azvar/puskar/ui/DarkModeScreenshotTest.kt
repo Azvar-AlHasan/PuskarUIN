@@ -25,10 +25,10 @@ class DarkModeScreenshotTest {
 
     @Test
     fun eventsTab_dark() {
-        composeRule.waitUntil(5_000) { composeRule.onAllNodes(hasText("Lowongan")).fetchSemanticsNodes().isNotEmpty() }
+        composeRule.waitUntil(5_000) { composeRule.onAllNodes(hasText("Data Analyst Intern")).fetchSemanticsNodes().isNotEmpty() }
         composeRule.onNodeWithText("Event").performClick()
         composeRule.waitUntil(5_000) {
-            composeRule.onAllNodes(hasText("Campus Hiring Day 2026")).fetchSemanticsNodes().isNotEmpty()
+            composeRule.onAllNodes(hasText("Campus Hiring Day")).fetchSemanticsNodes().isNotEmpty()
         }
         composeRule.onRoot().captureRoboImage("../docs/screenshots/07_events_dark.png")
     }

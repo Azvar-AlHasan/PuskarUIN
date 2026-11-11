@@ -32,6 +32,7 @@ import com.azvar.puskar.ui.events.EventsRoute
 import com.azvar.puskar.ui.jobdetail.JobDetailRoute
 import com.azvar.puskar.ui.jobs.JobsRoute
 import com.azvar.puskar.ui.saved.SavedRoute
+import com.azvar.puskar.ui.settings.SettingsRoute
 import kotlinx.serialization.Serializable
 import kotlin.reflect.KClass
 
@@ -44,6 +45,9 @@ data object EventsDestination
 
 @Serializable
 data object SavedDestination
+
+@Serializable
+data object SettingsDestination
 
 @Serializable
 data class JobDetailDestination(val jobId: String)
@@ -117,7 +121,10 @@ fun PuskarNavHost(
             modifier = Modifier.padding(bottom = padding.calculateBottomPadding()),
         ) {
             composable<JobsDestination> {
-                JobsRoute(onJobClick = { id -> navController.navigate(JobDetailDestination(id)) })
+                JobsRoute(
+                    onJobClick = { id -> navController.navigate(JobDetailDestination(id)) },
+                    onSettingsClick = { navController.navigate(SettingsDestination) },
+                )
             }
             composable<EventsDestination> {
                 EventsRoute(onEventClick = { id -> navController.navigate(EventDetailDestination(id)) })
@@ -133,6 +140,9 @@ fun PuskarNavHost(
             }
             composable<EventDetailDestination> {
                 EventDetailRoute(onBack = { navController.popBackStack() })
+            }
+            composable<SettingsDestination> {
+                SettingsRoute(onBack = { navController.popBackStack() })
             }
         }
     }

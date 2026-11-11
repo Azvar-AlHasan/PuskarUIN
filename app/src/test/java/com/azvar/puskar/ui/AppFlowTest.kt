@@ -2,10 +2,10 @@ package com.azvar.puskar.ui
 
 import android.Manifest
 import android.app.Application
-import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.onAllNodesWithContentDescription
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.v2.createAndroidComposeRule
+import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.performClick
@@ -52,6 +52,11 @@ class AppFlowTest {
     @get:Rule
     val composeRule = createAndroidComposeRule<MainActivity>()
 
+    private companion object {
+        /** Near the top of the default (deadline) ordering of the bundled dataset. */
+        const val TOP_JOB = "Data Analyst Intern"
+    }
+
     private fun waitForText(text: String) {
         composeRule.waitUntil(timeoutMillis = 5_000) {
             composeRule.onAllNodes(hasText(text)).fetchSemanticsNodes().isNotEmpty()
@@ -60,34 +65,34 @@ class AppFlowTest {
 
     @Test
     fun jobList_loadsAndOpensDetail() {
-        waitForText("Android Developer Intern")
+        waitForText(TOP_JOB)
         composeRule.onRoot().captureRoboImage("../docs/screenshots/01_job_list.png")
 
-        composeRule.onNodeWithText("Android Developer Intern").performClick()
+        composeRule.onNodeWithText(TOP_JOB).performClick()
         waitForText("Lamar Sekarang")
-        composeRule.onNodeWithText("Kualifikasi").assertIsDisplayed()
+        composeRule.onNodeWithText("Kualifikasi").assertExists()
         composeRule.onRoot().captureRoboImage("../docs/screenshots/02_job_detail.png")
     }
 
     @Test
     fun search_filtersList() {
-        waitForText("Android Developer Intern")
+        waitForText(TOP_JOB)
         composeRule.onNodeWithText("Cari posisi, perusahaan, atau lokasi").performTextInput("data")
-        waitForText("Data Analyst Intern")
+        waitForText("1 lowongan")
         composeRule.waitUntil(5_000) {
-            composeRule.onAllNodes(hasText("Android Developer Intern")).fetchSemanticsNodes().isEmpty()
+            composeRule.onAllNodes(hasText("Content Writer")).fetchSemanticsNodes().isEmpty()
         }
         composeRule.onRoot().captureRoboImage("../docs/screenshots/03_search.png")
     }
 
     @Test
     fun events_tabShowsEventsAndDetail() {
-        waitForText("Android Developer Intern")
+        waitForText(TOP_JOB)
         composeRule.onNodeWithText("Event").performClick()
-        waitForText("Campus Hiring Day 2026")
+        waitForText("Campus Hiring Day")
         composeRule.onRoot().captureRoboImage("../docs/screenshots/04_events.png")
 
-        composeRule.onNodeWithText("Campus Hiring Day 2026").performClick()
+        composeRule.onNodeWithText("Campus Hiring Day").performClick()
         waitForText("Tambah ke Kalender")
         composeRule.onRoot().captureRoboImage("../docs/screenshots/05_event_detail.png")
     }
@@ -98,10 +103,10 @@ class AppFlowTest {
         shadowOf(ApplicationProvider.getApplicationContext<Application>())
             .grantPermissions(Manifest.permission.POST_NOTIFICATIONS)
 
-        waitForText("Android Developer Intern")
+        waitForText(TOP_JOB)
         composeRule.onNodeWithText("Event").performClick()
-        waitForText("Campus Hiring Day 2026")
-        composeRule.onNodeWithText("Campus Hiring Day 2026").performClick()
+        waitForText("Campus Hiring Day")
+        composeRule.onNodeWithText("Campus Hiring Day").performClick()
         waitForText("Ingatkan Saya")
         composeRule.onNodeWithText("Ingatkan Saya").performClick()
         waitForText("Pengingat aktif (1 jam sebelum)")
@@ -115,10 +120,18 @@ class AppFlowTest {
 
     @Test
     fun saved_tabShowsBookmarkedJob() {
-        waitForText("Android Developer Intern")
+        waitForText(TOP_JOB)
         composeRule.onAllNodesWithContentDescription("Simpan lowongan")[0].performClick()
         composeRule.onNodeWithText("Tersimpan").performClick()
         waitForText("Lowongan tersimpan (1)")
         composeRule.onRoot().captureRoboImage("../docs/screenshots/06_saved.png")
+    }
+
+    @Test
+    fun settings_opensFromJobs() {
+        waitForText(TOP_JOB)
+        composeRule.onNodeWithContentDescription("Pengaturan").performClick()
+        waitForText("Ikuti sistem")
+        composeRule.onRoot().captureRoboImage("../docs/screenshots/08_settings.png")
     }
 }

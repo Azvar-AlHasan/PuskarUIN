@@ -16,8 +16,8 @@ android {
         applicationId = "com.azvar.puskar"
         minSdk = 26
         targetSdk = 37
-        versionCode = 2
-        versionName = "0.2.0"
+        versionCode = 3
+        versionName = "1.0.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -42,6 +42,7 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 
     testOptions {
@@ -86,6 +87,8 @@ dependencies {
     ksp(libs.androidx.room.compiler)
 
     implementation(libs.work.runtime.ktx)
+    implementation(libs.androidx.datastore.preferences)
+    implementation(libs.androidx.core.splashscreen)
 
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.kotlinx.coroutines.android)
